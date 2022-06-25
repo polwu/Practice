@@ -1,5 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Roboto+Mono:ital,wght@0,300;0,400;1,400;1,500&display=swap');
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  padding: 5em;
+}
+
+.Product-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* padding: 2em; */
+}
+
+.Product {
+  padding: 1em;
+}
+
+.Product .Name {
+  padding: 1em;
+}
+
+.Name {
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 .App-logo {
