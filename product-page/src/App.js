@@ -12,8 +12,11 @@ function App() {
           return (
           <Product
             key={product.code}
+            code={product.code}
             name={product.name}
             image={product.images}
+            description={product.description}
+            price={product.price}
           /> );
         })}
       </div>

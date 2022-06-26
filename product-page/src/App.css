@@ -16,12 +16,44 @@
   /* padding: 2em; */
 }
 
+.Product-container {
+  padding: 1em;
+}
+
 .Product {
   padding: 1em;
 }
 
 .Product .Name {
   padding: 1em;
+}
+
+.Button-container {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-around;
+}
+
+button {
+  padding: 1em;
+  background-color: #b2b2b2;
+  border-radius: 5px;
+}
+
+.Preview {
+  padding: 1em;
+}
+
+.Preview .code {
+  padding: 0em 1em;
+  font-weight: bold;
+  overflow-wrap: break-word; /*TODO: fix overflow problem*/
+}
+
+.Preview .price {
+  padding: 0.5em;
 }
 
 .Name {
