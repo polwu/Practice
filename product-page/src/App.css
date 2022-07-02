@@ -46,13 +46,17 @@ button {
   padding: 1em;
 }
 
-.Preview .code {
+.Preview .Code, .Details .Name {
   padding: 0em 1em;
   font-weight: bold;
   overflow-wrap: break-word; /*TODO: fix overflow problem*/
 }
 
-.Preview .price {
+.Details .Name {
+  font-size: large;
+}
+
+.Price {
   padding: 0.5em;
 }
 
@@ -85,6 +89,19 @@ button {
 .App-link {
   color: #61dafb;
 }
+
+.Details-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* padding: 2em; */
+}
+
+.Details-image, .Details, .Details-description {
+  padding: 1em;
+}
+
 
 @keyframes App-logo-spin {
   from {
