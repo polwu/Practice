@@ -3,20 +3,30 @@ import { useEffect, useState } from "react";
 function Product(props) {
     const [isPreview, setIsPreview] = useState(false);
 
-    const {isSelected, code, name, image, description, price, stock, showDetails} = props;
-    console.log("name=", name, "images=", image);
+    const {isSelected, selectProduct, removeProduct, code, name, image, description, price, stock, showDetails} = props;
+    // console.log("name=", name, "images=", image);
+
+    const product = code;
 
     if (name === undefined || name === null || 
         image === undefined || image === null)
     return;
     
     return (
-        <div className="Product-container">
+        <div className={ isSelected ? "Product-container-selected" : "Product-container"}
+        >
         <div className="Product">
             <div className="Name">{name}</div>
             <img src={image[0].url} alt={name} />
         </div>
         <div className="Button-container">
+            <button className="Select-button" 
+                onClick={() => {
+                    isSelected ? removeProduct(product) : selectProduct(product);
+                }}
+            >
+                Select
+            </button>
             <button className="Preview-button" onClick={() => setIsPreview(!isPreview)}>Preview</button>
             <button className="Details-button" 
                 onClick={() => {

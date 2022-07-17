@@ -5,7 +5,25 @@
   display: flex;
   justify-content: center;  
   align-items: center;
-  padding: 5em;
+  margin: 1em;
+}
+
+img {
+  margin: 0.25em;
+}
+
+.Selected-list-container {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+
+.Selected-list {
+  display: flex;
+  flex-direction: row;
 }
 
 .Product-list {
@@ -16,20 +34,24 @@
   /* padding: 2em; */
 }
 
-.Product-container {
-  padding: 1em;
+.Product-container, .Product-container-selected{
+  margin: 1em;
+}
+
+.Product-container-selected{
+  background-color: #61dafb;
 }
 
 .Product {
-  padding: 1em;
+  margin: 1em;
 }
 
 .Product .Name {
-  padding: 1em;
+  margin: 0.5em;
 }
 
 .Button-container {
-  padding: 1em;
+  margin: 1em;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -37,13 +59,14 @@
 }
 
 button {
-  padding: 1em;
+  padding: 0.5em;
   background-color: #b2b2b2;
   border-radius: 5px;
+  margin: 0.5em;
 }
 
 .Preview {
-  padding: 1em;
+  margin: 0.5em;
 }
 
 .Preview .Code, .Details .Name {
