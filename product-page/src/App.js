@@ -1,12 +1,15 @@
 import "./App.css";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Product from "./Product";
 import Details from "./Details";
-import data from "./data.json"; //TODO: should use fetch API
 
 function App() {
   const [detailsToShow, setDetailsToShow] = useState(null);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [numOfProductsInPage] = useState(3);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+  const [productDetails, setProductDetails] = useState([]);
   
   const returnToHomePage = useCallback( 
     () => setDetailsToShow(null), 
@@ -28,6 +31,26 @@ function App() {
     () => setSelectedProducts([]),
     []
   );
+
+  useEffect(() => {
+    fetch("./data.json")
+    .then(res => res.json())
+    .then(
+      result => {
+        setIsLoading(false);
+        let currentPageProductDetails = result.products;
+        setProductDetails(currentPageProductDetails);
+      },
+      error => {
+        setIsLoading(false);
+        console.error(error);
+      }
+    )
+  }, []);
+
+  const indexOfLastProductInPage = currentPage * numOfProductsInPage;
+  const indexOfFirstProductInPage = indexOfLastProductInPage - numOfProductsInPage;
+  const currentPageProducts = productDetails.slice(indexOfFirstProductInPage, indexOfLastProductInPage);
 
   return (
     <div className="App">
@@ -52,7 +75,7 @@ function App() {
         </div>
       </div>
       <div className="Product-list">
-        {data.products?.map((product, key) => { 
+        {currentPageProducts?.map((product, key) => { 
           console.log("(product.name, product.images, key)=",product.name, product.images, key);
           return (
           <Product
