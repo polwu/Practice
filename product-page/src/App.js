@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useCallback, useEffect, useState } from "react";
 import Product from "./Product";
 import Details from "./Details";
+import Pagination from "./Pagination";
 
 function App() {
   const [detailsToShow, setDetailsToShow] = useState(null);
@@ -51,6 +52,8 @@ function App() {
   const indexOfLastProductInPage = currentPage * numOfProductsInPage;
   const indexOfFirstProductInPage = indexOfLastProductInPage - numOfProductsInPage;
   const currentPageProducts = productDetails.slice(indexOfFirstProductInPage, indexOfLastProductInPage);
+  const totalNumOfPages = Math.ceil(productDetails.length / numOfProductsInPage);
+  console.log(totalNumOfPages)
 
   return (
     <div className="App">
@@ -92,6 +95,13 @@ function App() {
             showDetails={showDetails}
           /> );
         })}
+      </div>
+      <div className="Pagination">
+        <Pagination 
+          currentPage={currentPage}
+          numOfPages={totalNumOfPages}
+          navigateToPage={setCurrentPage}
+        />
       </div>
       </div>
     }
